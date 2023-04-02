@@ -48,7 +48,7 @@ public class CommonAPI {
     public static String currentDir = System.getProperty("user.dir");
 
 
-    private WebDriver driver;
+    public WebDriver driver;
     private boolean flag;
 
     //ExtentReport
@@ -128,8 +128,10 @@ public class CommonAPI {
             }
         }else if (os.equalsIgnoreCase("OS X")){
             if (browser.equalsIgnoreCase("chrome")){
-                System.setProperty("webdriver.chrome.driver", Utility.currentDir + "\\driver\\mac\\chromedriver");
-                driver = new ChromeDriver();
+                System.setProperty("webdriver.chrome.driver", Utility.currentDir + "/driver/mac/chromedriver");
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                driver = new ChromeDriver(options);
             }else if (browser.equalsIgnoreCase("firefox")){
                 System.setProperty("webdriver.gecko.driver", Utility.currentDir + "\\driver\\mac\\geckodriver");
                 driver = new FirefoxDriver();
