@@ -48,7 +48,7 @@ public class CommonAPI {
     public static String currentDir = System.getProperty("user.dir");
 
 
-    public WebDriver driver;
+    private WebDriver driver;
     private boolean flag;
 
     //ExtentReport
