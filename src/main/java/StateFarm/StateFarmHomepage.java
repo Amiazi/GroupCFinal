@@ -28,6 +28,9 @@ public class StateFarmHomepage {
     @FindBy(id = "quote-error-alert")
     public WebElement divQuoteErrorAlert;
 
+    @FindBy(css = "a[class$='link-override--block']")
+    public WebElement linkContinueSavedQuote;
+
     public StateFarmHomepage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -47,5 +50,8 @@ public class StateFarmHomepage {
     }
     public void checkQuoteErrorAlert() {
         Assert.assertTrue(divQuoteErrorAlert.isDisplayed());
+    }
+    public void clickContinueSavedQuoteLink() {
+        linkContinueSavedQuote.click();
     }
  }

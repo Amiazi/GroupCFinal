@@ -1,5 +1,6 @@
 package Statefarm;
 
+import StateFarm.RetrieveQuotePage;
 import StateFarm.StateFarmHomepage;
 import base.CommonAPI;
 import org.testng.annotations.Parameters;
@@ -26,8 +27,15 @@ public class TestStateFarmQuoteGeneration extends CommonAPI {
         stateFarmHomepage.checkQuoteErrorAlert();
     }
 
-    @Test(description = "Test users are presented with accurate pricing and coverage information when submitted quote from")
-    public void testAccuratePricingAndCoverageInformationDisplayed() {
+    @Test(description = "Test retrieve saved quote validation, submitting not saved email should alert user with error text")
+    @Parameters({"url"})
+    public void testRetrieveSavedQuotesValidation(String url) {
+        StateFarmHomepage homepage = new StateFarmHomepage(getDriver());
+        homepage.navigateToHomePage(url);
+        homepage.clickContinueSavedQuoteLink();
 
+        RetrieveQuotePage retrieveQuotePage = new RetrieveQuotePage(getDriver());
+        retrieveQuotePage.checkIfUserIsCurrentlyOnThisPage();
+        retrieveQuotePage.clickContinueQuoteButton();
     }
 }
