@@ -352,6 +352,25 @@ public class CommonAPI {
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+    public void scrollToViewWithDriver(WebElement element, WebDriver driver){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void scrollToBottom() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        long lastHeight = (long) js.executeScript("return document.body.scrollHeight");
+        while (true) {
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+            waitFor(5);
+            long newHeight = (long) js.executeScript("return document.body.scrollHeight");
+            if (newHeight == lastHeight) {
+                break;
+            }
+            lastHeight = newHeight;
+        }
+    }
+
     public void waitFor(int seconds) {
         try {
             Thread.sleep(seconds * 1000);

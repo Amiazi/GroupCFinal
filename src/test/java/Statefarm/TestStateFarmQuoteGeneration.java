@@ -1,6 +1,7 @@
 package Statefarm;
 
 import StateFarm.RetrieveQuotePage;
+import StateFarm.RetrieveSavedQuotesPage;
 import StateFarm.StateFarmHomepage;
 import base.CommonAPI;
 import org.testng.annotations.Parameters;
@@ -28,8 +29,8 @@ public class TestStateFarmQuoteGeneration extends CommonAPI {
     }
 
     @Test(description = "Test retrieve saved quote validation, submitting not saved email should alert user with error text")
-    @Parameters({"url"})
-    public void testRetrieveSavedQuotesValidation(String url) {
+    @Parameters({"url", "firstName", "lastName", "dateOfBirth", "emailAddress"})
+    public void testRetrieveSavedQuotesValidation(String url, String firstName, String lastName, String dateOfBirth, String emailAddress) {
         StateFarmHomepage homepage = new StateFarmHomepage(getDriver());
         homepage.navigateToHomePage(url);
         homepage.clickContinueSavedQuoteLink();
@@ -37,5 +38,14 @@ public class TestStateFarmQuoteGeneration extends CommonAPI {
         RetrieveQuotePage retrieveQuotePage = new RetrieveQuotePage(getDriver());
         retrieveQuotePage.checkIfUserIsCurrentlyOnThisPage();
         retrieveQuotePage.clickContinueQuoteButton();
+
+        RetrieveSavedQuotesPage savedQuotesPage = new RetrieveSavedQuotesPage(getDriver());
+        savedQuotesPage.checkIfUserIsOnThisPage();
+        savedQuotesPage.enterFirstName(firstName);
+        savedQuotesPage.enterLastName(lastName);
+        savedQuotesPage.enterDateOfBirth(dateOfBirth);
+        savedQuotesPage.enterEmailAddress(emailAddress);
+        savedQuotesPage.clickFindQuoteButton();
+        savedQuotesPage.checkIfErrorNotificationIsDisplayed();
     }
 }

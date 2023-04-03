@@ -25,6 +25,10 @@
 <!--                    <parameter name="product" value="Homeowners" />-->
 <!--                    <parameter name="zipCode" value="1234" />-->
 <!--                    <include name="testQuoteFormValidation" />-->
+                    <parameter name="firstName" value="Mashrur" />
+                    <parameter name="lastName" value="Islam" />
+                    <parameter name="dateOfBirth" value="12-12-2050" />
+                    <parameter name="emailAddress" value="mashrurislamsw6@gmail.com" />
                     <include name="testRetrieveSavedQuotesValidation" />
                 </methods>
             </class>
