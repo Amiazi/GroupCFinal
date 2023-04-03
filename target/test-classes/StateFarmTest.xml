@@ -17,14 +17,15 @@
     <parameter name="url" value="https://www.statefarm.com/"/>
 
 <!--    verifying that the quote form is properly validated-->
-    <test name="quote form validation" preserve-order="true">
+    <test name="quote form validation">
         <classes>
             <class name="Statefarm.TestStateFarmQuoteGeneration">
                 <methods>
-                    <parameter name="url" value="https://www.statefarm.com/" />
-                    <parameter name="product" value="Homeowners" />
-                    <parameter name="zipCode" value="1234" />
+<!--                    <parameter name="url" value="https://www.statefarm.com/" />-->
+<!--                    <parameter name="product" value="Homeowners" />-->
+<!--                    <parameter name="zipCode" value="1234" />-->
                     <include name="testQuoteFormValidation" />
+<!--                    <include name="testAccuratePricingAndCoverageInformationDisplayed" />-->
                 </methods>
             </class>
         </classes>

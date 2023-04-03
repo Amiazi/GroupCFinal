@@ -3,6 +3,7 @@ package utility;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,8 +32,10 @@ public class ExcelReader {
             FileInputStream excelFile = new FileInputStream(file);
             excelWBook = new XSSFWorkbook(excelFile);
             excelWSheet = excelWBook.getSheet(sheet);
-            cell = excelWSheet.getRow(rowNum).getCell(colNum);
-            String cellValue = cell.getStringCellValue();
+//            cell = excelWSheet.getRow(rowNum).getCell(colNum);
+//            String cellValue = cell.getStringCellValue();
+            DataFormatter formatter = new DataFormatter();
+            String cellValue = formatter.formatCellValue(excelWSheet.getRow(rowNum).getCell(colNum));
             excelFile.close();
             return cellValue;
         } catch (Exception e) {
@@ -41,7 +44,7 @@ public class ExcelReader {
         }
     }
 
-    public List<String> getEntireColumnData(String sheet, int rowStart, int colNum) {
+    public List<String>     getEntireColumnData(String sheet, int rowStart, int colNum) {
         List<String> columnData = new ArrayList<>();
         try {
             File file = new File(path);
