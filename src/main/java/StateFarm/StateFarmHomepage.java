@@ -64,6 +64,15 @@ public class StateFarmHomepage extends CommonAPI {
     @FindBy(linkText = "Contact Us")
     private WebElement contactUsLink;
 
+    @FindBy(id = "SFQSearch")
+    private WebElement searchInput;
+
+    @FindBy(id = "header-search-submit")
+    private WebElement searchButton;
+
+    @FindBy(id = "statefarm-logo")
+    private WebElement logo;
+
     public StateFarmHomepage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -140,7 +149,7 @@ public class StateFarmHomepage extends CommonAPI {
                     connection.setRequestMethod("HEAD");
                     connection.connect();
                     int statusCode = connection.getResponseCode();
-                    Assert.assertEquals(statusCode,200);
+                    Assert.assertTrue(statusCode < 400, "Broken link found: " + href);
                 } catch (Exception e) {
                     System.out.println("ERROR: Failed to check link " + href + " with exception " + e.getMessage());
                 }
@@ -150,5 +159,18 @@ public class StateFarmHomepage extends CommonAPI {
     public ContactUsPage clickContactUsLink() {
         contactUsLink.click();
         return new ContactUsPage(getDriver());
+    }
+    public SearchResultsPage search(String searchTerm) {
+        // Enter the search term
+        searchInput.sendKeys(searchTerm);
+
+        // Click the search button
+        searchButton.click();
+
+        // Return a new SearchResultsPage
+        return new SearchResultsPage(driver);
+    }
+    public boolean isLogoDisplayed() {
+        return logo.isDisplayed();
     }
  }

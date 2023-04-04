@@ -58,8 +58,9 @@
                 <methods>
                     <parameter name="expectedHeading" value="Crea un precio económico, solo para ti." />
 <!--                    <include name="testChangeLanguageToSpanish" />-->
-<!--                    <include name="testBrokenLinks" />-->
+                    <include name="testBrokenLinks" />
                     <include name="testContactUs" />
+                    <include name="testSearch" />
                 </methods>
             </class>
         </classes>

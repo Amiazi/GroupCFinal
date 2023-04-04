@@ -1,6 +1,7 @@
 package Statefarm;
 
 import StateFarm.ContactUsPage;
+import StateFarm.SearchResultsPage;
 import StateFarm.StateFarmHomepage;
 import base.CommonAPI;
 import org.testng.Assert;
@@ -35,5 +36,21 @@ public class TestStateFarmHomepage extends CommonAPI {
 
         // Verify that the message was sent successfully
         Assert.assertTrue(contactUsPage.isSentSuccessMessageDisplayed());
+    }
+    @Test
+    public void testSearch() {
+        StateFarmHomepage stateFarmHomePage = new StateFarmHomepage(getDriver());
+
+        // Perform a search
+        SearchResultsPage searchResultsPage = stateFarmHomePage.search("Auto insurance");
+
+        // Verify that the search results are displayed
+        Assert.assertTrue(searchResultsPage.isSearchResultsDisplayed());
+
+        // Navigate back to the homepage
+        stateFarmHomePage = searchResultsPage.navigateToHomePage();
+
+        // Verify that the State Farm logo is displayed on the homepage
+        Assert.assertTrue(stateFarmHomePage.isLogoDisplayed());
     }
 }
