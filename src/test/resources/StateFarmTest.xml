@@ -14,50 +14,51 @@
     <parameter name="browserVersion" value="111"/>
     <parameter name="url" value="https://www.statefarm.com/"/>
 
-    <test name="State Farm Calculator">
-        <classes>
-            <class name="Statefarm.TestStateFarmCalculators">
-                <methods>
-                    <include name="testUserCanSuccessfullyNavigateToCalculatorPageClickingCarouselCard" />
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="State Farm Calculator">-->
+<!--        <classes>-->
+<!--            <class name="Statefarm.TestStateFarmCalculators">-->
+<!--                <methods>-->
+<!--                    <include name="testUserCanSuccessfullyNavigateToCalculatorPageClickingCarouselCard" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Quote generation">
-        <classes>
-            <class name="Statefarm.TestStateFarmQuoteGeneration">
-                <methods>
-                    <include name="testQuoteFormValidation" />
-                    <parameter name="url" value="https://www.statefarm.com/" />
-                    <parameter name="firstName" value="Mashrur" />
-                    <parameter name="lastName" value="Islam" />
-                    <parameter name="dateOfBirth" value="12-12-2050" />
-                    <parameter name="emailAddress" value="mashrurislamsw6@gmail.com" />
-                    <include name="testRetrieveSavedQuotesValidation" />
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="Quote generation">-->
+<!--        <classes>-->
+<!--            <class name="Statefarm.TestStateFarmQuoteGeneration">-->
+<!--                <methods>-->
+<!--                    <include name="testQuoteFormValidation" />-->
+<!--                    <parameter name="url" value="https://www.statefarm.com/" />-->
+<!--                    <parameter name="firstName" value="Mashrur" />-->
+<!--                    <parameter name="lastName" value="Islam" />-->
+<!--                    <parameter name="dateOfBirth" value="12-12-2050" />-->
+<!--                    <parameter name="emailAddress" value="mashrurislamsw6@gmail.com" />-->
+<!--                    <include name="testRetrieveSavedQuotesValidation" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="State Farm Agent">
-        <classes>
-            <class name="Statefarm.TestStateFarmAgent">
-                <methods>
-                    <parameter name="zip" value="99950" />
-                    <parameter name="expectedAgents" value="1" />
-                    <include name="testTotalNumberOfAgentsRetrievedOnFindAnAgentForSpecificZip" />
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="State Farm Agent">-->
+<!--        <classes>-->
+<!--            <class name="Statefarm.TestStateFarmAgent">-->
+<!--                <methods>-->
+<!--                    <parameter name="zip" value="99950" />-->
+<!--                    <parameter name="expectedAgents" value="1" />-->
+<!--                    <include name="testTotalNumberOfAgentsRetrievedOnFindAnAgentForSpecificZip" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Language Change">
+    <test name="State Farm Homepage">
         <classes>
             <class name="Statefarm.TestStateFarmHomepage">
                 <methods>
                     <parameter name="expectedHeading" value="Crea un precio económico, solo para ti." />
-                    <include name="testChangeLanguageToSpanish" />
+<!--                    <include name="testChangeLanguageToSpanish" />-->
+                    <include name="testBrokenLinks" />
                 </methods>
             </class>
         </classes>

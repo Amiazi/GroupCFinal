@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -55,6 +57,9 @@ public class StateFarmHomepage extends CommonAPI {
 
     @FindBy(css = "span[class='-oneX-d-block si-slider-button -w_arrow-right']")
     public WebElement spanSliderNextButton;
+
+    @FindBy(tagName = "a")
+    public List<WebElement> links;
 
     public StateFarmHomepage(WebDriver driver) {
         this.driver = driver;
@@ -121,5 +126,22 @@ public class StateFarmHomepage extends CommonAPI {
             .filter(webElement -> webElement.getText().contains("Calculators to help you reach your goals"))
             .toList();
         return calculatorCard.size() != 0;
+    }
+    public void checkForBrokenLinks() {
+        for (WebElement link : links) {
+            String href = link.getAttribute("href");
+            if (href != null && !href.isEmpty()) {
+                try {
+                    URL url = new URL(href);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("HEAD");
+                    connection.connect();
+                    int statusCode = connection.getResponseCode();
+                    Assert.assertEquals(statusCode,200);
+                } catch (Exception e) {
+                    System.out.println("ERROR: Failed to check link " + href + " with exception " + e.getMessage());
+                }
+            }
+        }
     }
  }

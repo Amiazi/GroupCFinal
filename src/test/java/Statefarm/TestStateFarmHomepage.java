@@ -13,4 +13,9 @@ public class TestStateFarmHomepage extends CommonAPI {
         homepage.clickEspanonLink();
         homepage.checkIfLanguageChangedToSpanish(expectedHeading);
     }
+    @Test
+    public void testBrokenLinks() {
+        StateFarmHomepage homepage = new StateFarmHomepage(getDriver());
+        homepage.checkForBrokenLinks();
+    }
 }
