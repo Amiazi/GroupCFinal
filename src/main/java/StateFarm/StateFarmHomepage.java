@@ -61,6 +61,9 @@ public class StateFarmHomepage extends CommonAPI {
     @FindBy(tagName = "a")
     public List<WebElement> links;
 
+    @FindBy(linkText = "Contact Us")
+    private WebElement contactUsLink;
+
     public StateFarmHomepage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -143,5 +146,9 @@ public class StateFarmHomepage extends CommonAPI {
                 }
             }
         }
+    }
+    public ContactUsPage clickContactUsLink() {
+        contactUsLink.click();
+        return new ContactUsPage(getDriver());
     }
  }
