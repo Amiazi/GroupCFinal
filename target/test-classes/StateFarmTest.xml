@@ -32,13 +32,23 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="State Farm Agent">
+<!--    <test name="State Farm Agent">-->
+<!--        <classes>-->
+<!--            <class name="Statefarm.TestStateFarmAgent">-->
+<!--                <methods>-->
+<!--                    <parameter name="zip" value="99950" />-->
+<!--                    <parameter name="expectedAgents" value="1" />-->
+<!--                    <include name="testTotalNumberOfAgentsRetrievedOnFindAnAgentForSpecificZip" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Language Change">
         <classes>
-            <class name="Statefarm.TestStateFarmAgent">
+            <class name="Statefarm.TestStateFarmHomepage">
                 <methods>
-                    <parameter name="zip" value="99950" />
-                    <parameter name="expectedAgents" value="1" />
-                    <include name="testTotalNumberOfAgentsRetrievedOnFindAnAgentForSpecificZip" />
+                    <parameter name="expectedHeading" value="Crea un precio económico, solo para ti." />
+                    <include name="testChangeLanguageToSpanish" />
                 </methods>
             </class>
         </classes>

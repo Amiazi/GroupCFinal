@@ -40,6 +40,12 @@ public class StateFarmHomepage {
     @FindBy(id = "findAnAgentButton")
     public WebElement buttonFindAgent;
 
+    @FindBy(css = "a[class='-oneX-lang-icon -oneX-header-util-menu-btn -oneX-util-menu-icon-container']")
+    public WebElement linkEspa;
+
+    @FindBy(css = "p[class^='-oneX-heading--h1']")
+    public WebElement pCreateAffordablePriceJust;
+
     public StateFarmHomepage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -71,5 +77,12 @@ public class StateFarmHomepage {
     }
     public void clickFindAnAgentButton() {
         buttonFindAgent.click();
+    }
+    public void clickEspanonLink() {
+        linkEspa.click();
+    }
+    public void checkIfLanguageChangedToSpanish(String expectedHeading) {
+        String displayedHeading = pCreateAffordablePriceJust.getText();
+        Assert.assertTrue(displayedHeading.equalsIgnoreCase(expectedHeading));
     }
  }
