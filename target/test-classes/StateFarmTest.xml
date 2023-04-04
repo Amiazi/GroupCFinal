@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-
-<!--    Test the quote generation process to ensure that users can get accurate quotes for various insurance products.-->
-<suite name="Quote generation" parallel="false">
+<suite name="State Farm Website Automation Testing" parallel="false">
 
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnvName" value="browserstack"/>
@@ -16,23 +14,33 @@
     <parameter name="browserVersion" value="111"/>
     <parameter name="url" value="https://www.statefarm.com/"/>
 
-<!--    verifying that the quote form is properly validated-->
-    <test name="quote form validation">
-        <classes>
-            <class name="Statefarm.TestStateFarmQuoteGeneration">
-                <methods>
-                    <parameter name="url" value="https://www.statefarm.com/" />
-<!--                    <parameter name="product" value="Homeowners" />-->
-<!--                    <parameter name="zipCode" value="1234" />-->
+    <!--    Test the quote generation process to ensure that users can get accurate quotes for various insurance products.-->
+<!--    <test name="Quote generation">-->
+<!--        <classes>-->
+<!--            <class name="Statefarm.TestStateFarmQuoteGeneration">-->
+<!--                <methods>-->
+<!--                    &lt;!&ndash;    verifying that the quote form is properly validated&ndash;&gt;-->
 <!--                    <include name="testQuoteFormValidation" />-->
-                    <parameter name="firstName" value="Mashrur" />
-                    <parameter name="lastName" value="Islam" />
-                    <parameter name="dateOfBirth" value="12-12-2050" />
-                    <parameter name="emailAddress" value="mashrurislamsw6@gmail.com" />
-                    <include name="testRetrieveSavedQuotesValidation" />
+<!--                    <parameter name="url" value="https://www.statefarm.com/" />-->
+<!--                    <parameter name="firstName" value="Mashrur" />-->
+<!--                    <parameter name="lastName" value="Islam" />-->
+<!--                    <parameter name="dateOfBirth" value="12-12-2050" />-->
+<!--                    <parameter name="emailAddress" value="mashrurislamsw6@gmail.com" />-->
+<!--                    <include name="testRetrieveSavedQuotesValidation" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="State Farm Agent">
+        <classes>
+            <class name="Statefarm.TestStateFarmAgent">
+                <methods>
+                    <parameter name="zip" value="99950" />
+                    <parameter name="expectedAgents" value="1" />
+                    <include name="testTotalNumberOfAgentsRetrievedOnFindAnAgentForSpecificZip" />
                 </methods>
             </class>
         </classes>
     </test>
-
 </suite>

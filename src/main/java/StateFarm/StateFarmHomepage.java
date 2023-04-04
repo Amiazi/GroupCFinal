@@ -31,6 +31,15 @@ public class StateFarmHomepage {
     @FindBy(css = "a[class$='link-override--block']")
     public WebElement linkContinueSavedQuote;
 
+    @FindBy(css = "button[data-for='findanagent'] span")
+    public WebElement spanFindAgent;
+
+    @FindBy(id = "oneX-findAnAgentZipCode")
+    public WebElement inputZipInFindAgent;
+
+    @FindBy(id = "findAnAgentButton")
+    public WebElement buttonFindAgent;
+
     public StateFarmHomepage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -53,5 +62,14 @@ public class StateFarmHomepage {
     }
     public void clickContinueSavedQuoteLink() {
         linkContinueSavedQuote.click();
+    }
+    public void clickFindAgentNavItem() {
+        spanFindAgent.click();
+    }
+    public void enterZipCodeOnFindAgentSection(String zipCode) {
+        inputZipInFindAgent.sendKeys(zipCode);
+    }
+    public void clickFindAnAgentButton() {
+        buttonFindAgent.click();
     }
  }
