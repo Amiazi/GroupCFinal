@@ -1,6 +1,7 @@
 package Statefarm;
 
 import StateFarm.ContactUsPage;
+import StateFarm.CustomerCarePage;
 import StateFarm.SearchResultsPage;
 import StateFarm.StateFarmHomepage;
 import base.CommonAPI;
@@ -50,5 +51,12 @@ public class TestStateFarmHomepage extends CommonAPI {
 
         // Verify that the State Farm logo is displayed on the homepage
         Assert.assertTrue(stateFarmHomePage.isLogoDisplayed());
+    }
+    @Test
+    public void testHelpButtonFunctionality() {
+        StateFarmHomepage stateFarmHomePage = new StateFarmHomepage(getDriver());
+        CustomerCarePage customerCarePage = stateFarmHomePage.clickHelpButton();
+        String customerCarePageUrl = customerCarePage.getCurrentUrl();
+        Assert.assertEquals(customerCarePageUrl, "https://www.statefarm.com/customer-care");
     }
 }

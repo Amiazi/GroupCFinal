@@ -1,6 +1,7 @@
 package StateFarm;
 
 import base.CommonAPI;
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -75,6 +76,9 @@ public class StateFarmHomepage extends CommonAPI {
 
     @FindBy(css = "button[data-for='search']")
     public WebElement buttonSearch;
+
+    @FindBy(xpath = "//a[.//div[contains(@class, '-oneX-util-menu-icon-help')]]")
+    public WebElement linkHelp;
 
     public StateFarmHomepage(WebDriver driver) {
         this.driver = driver;
@@ -179,5 +183,11 @@ public class StateFarmHomepage extends CommonAPI {
     }
     public boolean isLogoDisplayed() {
         return logo.isDisplayed();
+    }
+    public CustomerCarePage clickHelpButton() {
+        linkHelp.click();
+        waitFor(5);
+        switchToNextTab(driver);
+        return new CustomerCarePage(driver);
     }
  }

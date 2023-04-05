@@ -405,6 +405,20 @@ public class CommonAPI {
             LOG.info("Exception while taking screenshot "+e.getMessage());
         }
     }
+
+    public void switchToNextTab(WebDriver driver) {
+        // Get the current window handle
+        String currentHandle = driver.getWindowHandle();
+
+        // Get a list of all window handles
+        List<String> handlesList = new ArrayList<String>(driver.getWindowHandles());
+
+        // Get the index of the current window handle
+        int currentHandleIndex = handlesList.indexOf(currentHandle);
+
+        // Switch to the next tab
+        driver.switchTo().window(handlesList.get(currentHandleIndex + 1));
+    }
 }
 
 

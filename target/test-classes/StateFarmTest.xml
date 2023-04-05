@@ -62,7 +62,8 @@
 <!--                    <parameter name="expectedConsumerPhone" value="833-728-0344" />-->
 <!--                    <parameter name="expectedBusinessPhone" value="833-728-0345" />-->
 <!--                    <include name="testContactUs" />-->
-                    <include name="testSearch" />
+<!--                    <include name="testSearch" />-->
+                    <include name="testHelpButtonFunctionality" />
                 </methods>
             </class>
         </classes>
