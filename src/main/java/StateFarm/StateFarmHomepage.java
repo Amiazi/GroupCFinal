@@ -157,8 +157,9 @@ public class StateFarmHomepage extends CommonAPI {
         }
     }
     public ContactUsPage clickContactUsLink() {
+        scrollToViewWithDriver(contactUsLink, driver);
         contactUsLink.click();
-        return new ContactUsPage(getDriver());
+        return new ContactUsPage(driver);
     }
     public SearchResultsPage search(String searchTerm) {
         // Enter the search term
