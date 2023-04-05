@@ -29,11 +29,6 @@
 <!--            <class name="Statefarm.TestStateFarmQuoteGeneration">-->
 <!--                <methods>-->
 <!--                    <include name="testQuoteFormValidation" />-->
-<!--                    <parameter name="url" value="https://www.statefarm.com/" />-->
-<!--                    <parameter name="firstName" value="Mashrur" />-->
-<!--                    <parameter name="lastName" value="Islam" />-->
-<!--                    <parameter name="dateOfBirth" value="12-12-2050" />-->
-<!--                    <parameter name="emailAddress" value="mashrurislamsw6@gmail.com" />-->
 <!--                    <include name="testRetrieveSavedQuotesValidation" />-->
 <!--                </methods>-->
 <!--            </class>-->
@@ -44,8 +39,6 @@
 <!--        <classes>-->
 <!--            <class name="Statefarm.TestStateFarmAgent">-->
 <!--                <methods>-->
-<!--                    <parameter name="zip" value="99950" />-->
-<!--                    <parameter name="expectedAgents" value="1" />-->
 <!--                    <include name="testTotalNumberOfAgentsRetrievedOnFindAnAgentForSpecificZip" />-->
 <!--                </methods>-->
 <!--            </class>-->
@@ -56,14 +49,11 @@
         <classes>
             <class name="Statefarm.TestStateFarmHomepage">
                 <methods>
-                    <parameter name="expectedHeading" value="Crea un precio económico, solo para ti." />
 <!--                    <include name="testChangeLanguageToSpanish" />-->
 <!--                    <include name="testBrokenLinks" />-->
-<!--                    <parameter name="expectedConsumerPhone" value="833-728-0344" />-->
-<!--                    <parameter name="expectedBusinessPhone" value="833-728-0345" />-->
-<!--                    <include name="testContactUs" />-->
+                    <include name="testContactUs" />
 <!--                    <include name="testSearch" />-->
-                    <include name="testHelpButtonFunctionality" />
+<!--                    <include name="testHelpButtonFunctionality" />-->
                 </methods>
             </class>
         </classes>

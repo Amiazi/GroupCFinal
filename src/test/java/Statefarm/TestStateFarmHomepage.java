@@ -8,11 +8,16 @@ import base.CommonAPI;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import utility.ExcelDataProvider;
 
 public class TestStateFarmHomepage extends CommonAPI {
     @Test
-    @Parameters({"expectedHeading"})
-    public void testChangeLanguageToSpanish(String expectedHeading) {
+    public void testChangeLanguageToSpanish() {
+        ExcelDataProvider dataProvider = ExcelDataProvider.getInstance();
+        dataProvider.loadFile("src/test/resources/StateFarmTestData.xlsx", "LanguageTestData");
+
+        String expectedHeading = dataProvider.getDataFromCell(1, 0);
+
         StateFarmHomepage homepage = new StateFarmHomepage(getDriver());
         homepage.clickEspanonLink();
         homepage.checkIfLanguageChangedToSpanish(expectedHeading);
@@ -23,8 +28,13 @@ public class TestStateFarmHomepage extends CommonAPI {
         homepage.checkForBrokenLinks();
     }
     @Test
-    @Parameters({"expectedConsumerPhone", "expectedBusinessPhone"})
-    public void testContactUs(String expectedConsumerPhone, String expectedBusinessPhone) {
+    public void testContactUs() {
+        ExcelDataProvider dataProvider = ExcelDataProvider.getInstance();
+        dataProvider.loadFile("src/test/resources/StateFarmTestData.xlsx", "ContactTestData");
+
+        String expectedConsumerPhone = dataProvider.getDataFromCell(1, 0);
+        String expectedBusinessPhone = dataProvider.getDataFromCell(1, 1);
+
         StateFarmHomepage stateFarmHomePage = new StateFarmHomepage(getDriver());
         ContactUsPage contactUsPage = stateFarmHomePage.clickContactUsLink();
 

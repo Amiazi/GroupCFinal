@@ -32,10 +32,8 @@ public class ExcelReader {
             FileInputStream excelFile = new FileInputStream(file);
             excelWBook = new XSSFWorkbook(excelFile);
             excelWSheet = excelWBook.getSheet(sheet);
-//            cell = excelWSheet.getRow(rowNum).getCell(colNum);
-//            String cellValue = cell.getStringCellValue();
-            DataFormatter formatter = new DataFormatter();
-            String cellValue = formatter.formatCellValue(excelWSheet.getRow(rowNum).getCell(colNum));
+            cell = excelWSheet.getRow(rowNum).getCell(colNum);
+            String cellValue = cell.getStringCellValue();
             excelFile.close();
             return cellValue;
         } catch (Exception e) {
