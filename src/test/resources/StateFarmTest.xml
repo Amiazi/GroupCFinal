@@ -59,10 +59,10 @@
                     <parameter name="expectedHeading" value="Crea un precio económico, solo para ti." />
 <!--                    <include name="testChangeLanguageToSpanish" />-->
 <!--                    <include name="testBrokenLinks" />-->
-                    <parameter name="expectedConsumerPhone" value="833-728-0344" />
-                    <parameter name="expectedBusinessPhone" value="833-728-0345" />
-                    <include name="testContactUs" />
-<!--                    <include name="testSearch" />-->
+<!--                    <parameter name="expectedConsumerPhone" value="833-728-0344" />-->
+<!--                    <parameter name="expectedBusinessPhone" value="833-728-0345" />-->
+<!--                    <include name="testContactUs" />-->
+                    <include name="testSearch" />
                 </methods>
             </class>
         </classes>

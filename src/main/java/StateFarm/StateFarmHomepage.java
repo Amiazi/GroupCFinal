@@ -64,14 +64,17 @@ public class StateFarmHomepage extends CommonAPI {
     @FindBy(linkText = "Contact Us")
     private WebElement contactUsLink;
 
-    @FindBy(id = "SFQSearch")
+    @FindBy(id = "util-sf-search")
     private WebElement searchInput;
 
-    @FindBy(id = "header-search-submit")
+    @FindBy(css = "button[class^='-oneX-util-search-button']")
     private WebElement searchButton;
 
-    @FindBy(id = "statefarm-logo")
+    @FindBy(css = "img[id='oneX-sf-logo']")
     private WebElement logo;
+
+    @FindBy(css = "button[data-for='search']")
+    public WebElement buttonSearch;
 
     public StateFarmHomepage(WebDriver driver) {
         this.driver = driver;
@@ -160,6 +163,9 @@ public class StateFarmHomepage extends CommonAPI {
         scrollToViewWithDriver(contactUsLink, driver);
         contactUsLink.click();
         return new ContactUsPage(driver);
+    }
+    public void clickSearchButton() {
+        buttonSearch.click();
     }
     public SearchResultsPage search(String searchTerm) {
         // Enter the search term

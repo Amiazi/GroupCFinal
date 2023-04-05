@@ -8,14 +8,14 @@ import org.openqa.selenium.support.PageFactory;
 public class SearchResultsPage {
     private WebDriver driver;
 
-    @FindBy(css = ".search-count strong")
-    private WebElement searchResultsCount;
-
     @FindBy(css = ".search-results-container h1")
     private WebElement searchResultsHeader;
 
-    @FindBy(css = ".sf-logo-link img")
-    private WebElement stateFarmLogo;
+    @FindBy(css = "div[id='search-result-1']")
+    public WebElement divSearchResult;
+
+    @FindBy(css = "img[id='oneX-sf-logo']")
+    public WebElement stateFarmLogo;
 
     // Constructor
     public SearchResultsPage(WebDriver driver) {
@@ -25,7 +25,7 @@ public class SearchResultsPage {
 
     public boolean isSearchResultsDisplayed() {
         // Check if the search results are displayed by looking for the search results count
-        return searchResultsCount.isDisplayed();
+        return divSearchResult.isDisplayed();
     }
 
     public StateFarmHomepage navigateToHomePage() {

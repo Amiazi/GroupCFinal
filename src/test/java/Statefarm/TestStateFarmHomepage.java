@@ -37,6 +37,8 @@ public class TestStateFarmHomepage extends CommonAPI {
     public void testSearch() {
         StateFarmHomepage stateFarmHomePage = new StateFarmHomepage(getDriver());
 
+        stateFarmHomePage.clickSearchButton();
+
         // Perform a search
         SearchResultsPage searchResultsPage = stateFarmHomePage.search("Auto insurance");
 
