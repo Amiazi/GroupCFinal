@@ -138,7 +138,7 @@ public class StateFarmHomepage extends CommonAPI {
             .toList()
             .get(0);
         calculatorCard.click();
-        waitFor(2);
+        waitFor(5);
         return new CalculatorsPage(driver);
     }
     public void clickNextCarouselButton() {
