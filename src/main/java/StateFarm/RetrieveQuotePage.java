@@ -26,7 +26,8 @@ public class RetrieveQuotePage extends CommonAPI {
         Assert.assertTrue(currentUrl.equalsIgnoreCase(pageUrl));
     }
 
-    public void clickContinueQuoteButton() {
+    public RetrieveSavedQuotesPage clickContinueQuoteButton() {
         linkContinueQuote.click();
+        return new RetrieveSavedQuotesPage(driver);
     }
 }

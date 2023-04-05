@@ -12,8 +12,8 @@ public class CalculatorsPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public void checkIfUserIsCurrentlyOnThisPage() {
-        String currentUrl = driver.getCurrentUrl();
-        Assert.assertTrue(currentUrl.equalsIgnoreCase(pageUrl));
+
+    public String getPageUrl() {
+        return driver.getCurrentUrl();
     }
 }

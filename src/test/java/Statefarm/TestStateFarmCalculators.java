@@ -3,7 +3,7 @@ package Statefarm;
 import StateFarm.CalculatorsPage;
 import StateFarm.StateFarmHomepage;
 import base.CommonAPI;
-import org.testng.annotations.Parameters;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestStateFarmCalculators extends CommonAPI {
@@ -11,9 +11,8 @@ public class TestStateFarmCalculators extends CommonAPI {
     public void testUserCanSuccessfullyNavigateToCalculatorPageClickingCarouselCard() {
         StateFarmHomepage homepage = new StateFarmHomepage(getDriver());
         homepage.scrollToCarouselView();
-        homepage.clickCalculatorCarouselCard();
-
-        CalculatorsPage calculatorsPage = new CalculatorsPage(getDriver());
-        calculatorsPage.checkIfUserIsCurrentlyOnThisPage();
+        CalculatorsPage calculatorsPage = homepage.clickCalculatorCarouselCard();
+        String currentUrl = calculatorsPage.getPageUrl();
+        Assert.assertTrue(currentUrl.equalsIgnoreCase("https://www.statefarm.com/simple-insights/calculators"));
     }
 }

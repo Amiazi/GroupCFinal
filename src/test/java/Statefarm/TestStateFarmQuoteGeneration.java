@@ -4,18 +4,12 @@ import StateFarm.RetrieveQuotePage;
 import StateFarm.RetrieveSavedQuotesPage;
 import StateFarm.StateFarmHomepage;
 import base.CommonAPI;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utility.ExcelDataProvider;
 import utility.ExcelReader;
 
-import java.util.List;
-
 public class TestStateFarmQuoteGeneration extends CommonAPI {
     @Test(description = "Test quote form validation, providing a wrong zip code should alert user with error text")
-//    @Parameters({"url", "product", "zipCode"})
-//    public void testQuoteFormValidation(String url, String product, String zipCode) {
     public void testQuoteFormValidation() {
         ExcelReader excelReader = new ExcelReader("src/test/resources/StateFarmTestData.xlsx");
         String url = excelReader.getDataFromCell("QuoteFormData", 1, 0);
@@ -43,13 +37,11 @@ public class TestStateFarmQuoteGeneration extends CommonAPI {
 
         StateFarmHomepage homepage = new StateFarmHomepage(getDriver());
         homepage.navigateToHomePage(url);
-        homepage.clickContinueSavedQuoteLink();
+        RetrieveQuotePage retrieveQuotePage = homepage.clickContinueSavedQuoteLink();
 
-        RetrieveQuotePage retrieveQuotePage = new RetrieveQuotePage(getDriver());
         retrieveQuotePage.checkIfUserIsCurrentlyOnThisPage();
-        retrieveQuotePage.clickContinueQuoteButton();
+        RetrieveSavedQuotesPage savedQuotesPage = retrieveQuotePage.clickContinueQuoteButton();
 
-        RetrieveSavedQuotesPage savedQuotesPage = new RetrieveSavedQuotesPage(getDriver());
         savedQuotesPage.checkIfUserIsOnThisPage();
         savedQuotesPage.enterFirstName(firstName);
         savedQuotesPage.enterLastName(lastName);

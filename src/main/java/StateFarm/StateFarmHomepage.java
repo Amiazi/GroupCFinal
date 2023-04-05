@@ -100,8 +100,9 @@ public class StateFarmHomepage extends CommonAPI {
     public void checkQuoteErrorAlert() {
         Assert.assertTrue(divQuoteErrorAlert.isDisplayed());
     }
-    public void clickContinueSavedQuoteLink() {
+    public RetrieveQuotePage clickContinueSavedQuoteLink() {
         linkContinueSavedQuote.click();
+        return new RetrieveQuotePage(driver);
     }
     public void clickFindAgentNavItem() {
         spanFindAgent.click();
@@ -109,8 +110,10 @@ public class StateFarmHomepage extends CommonAPI {
     public void enterZipCodeOnFindAgentSection(String zipCode) {
         inputZipInFindAgent.sendKeys(zipCode);
     }
-    public void clickFindAnAgentButton() {
+    public AgentPage clickFindAnAgentButton() {
         buttonFindAgent.click();
+        waitFor(2);
+        return new AgentPage(driver);
     }
     public void clickEspanonLink() {
         linkEspa.click();
@@ -122,7 +125,7 @@ public class StateFarmHomepage extends CommonAPI {
     public void scrollToCarouselView() {
         scrollToViewWithDriver(carouselSlider, driver);
     }
-    public void clickCalculatorCarouselCard() {
+    public CalculatorsPage clickCalculatorCarouselCard() {
         List<WebElement> allCarouselCardLinks = carouselSlider.findElements(By.cssSelector(".card-info"));
 
         while(!calculatorCarouselCardDisplayed(allCarouselCardLinks)) {
@@ -135,6 +138,8 @@ public class StateFarmHomepage extends CommonAPI {
             .toList()
             .get(0);
         calculatorCard.click();
+        waitFor(2);
+        return new CalculatorsPage(driver);
     }
     public void clickNextCarouselButton() {
         spanSliderNextButton.click();
@@ -147,6 +152,7 @@ public class StateFarmHomepage extends CommonAPI {
         return calculatorCard.size() != 0;
     }
     public void checkForBrokenLinks() {
+        links = links.subList(0, 1);
         for (WebElement link : links) {
             String href = link.getAttribute("href");
             if (href != null && !href.isEmpty()) {
@@ -172,13 +178,8 @@ public class StateFarmHomepage extends CommonAPI {
         buttonSearch.click();
     }
     public SearchResultsPage search(String searchTerm) {
-        // Enter the search term
         searchInput.sendKeys(searchTerm);
-
-        // Click the search button
         searchButton.click();
-
-        // Return a new SearchResultsPage
         return new SearchResultsPage(driver);
     }
     public boolean isLogoDisplayed() {

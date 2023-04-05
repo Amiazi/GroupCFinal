@@ -14,48 +14,36 @@
     <parameter name="browserVersion" value="111"/>
     <parameter name="url" value="https://www.statefarm.com/"/>
 
-<!--    <test name="State Farm Calculator">-->
-<!--        <classes>-->
-<!--            <class name="Statefarm.TestStateFarmCalculators">-->
-<!--                <methods>-->
-<!--                    <include name="testUserCanSuccessfullyNavigateToCalculatorPageClickingCarouselCard" />-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-<!--    <test name="Quote generation">-->
-<!--        <classes>-->
-<!--            <class name="Statefarm.TestStateFarmQuoteGeneration">-->
-<!--                <methods>-->
-<!--                    <include name="testQuoteFormValidation" />-->
-<!--                    <include name="testRetrieveSavedQuotesValidation" />-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-<!--    <test name="State Farm Agent">-->
-<!--        <classes>-->
-<!--            <class name="Statefarm.TestStateFarmAgent">-->
-<!--                <methods>-->
-<!--                    <include name="testTotalNumberOfAgentsRetrievedOnFindAnAgentForSpecificZip" />-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-    <test name="State Farm Homepage">
+    <test name="State Farm Calculator">
         <classes>
-            <class name="Statefarm.TestStateFarmHomepage">
+            <class name="Statefarm.TestStateFarmCalculators" />
+        </classes>
+    </test>
+
+    <test name="Quote generation">
+        <classes>
+            <class name="Statefarm.TestStateFarmQuoteGeneration">
                 <methods>
-<!--                    <include name="testChangeLanguageToSpanish" />-->
-<!--                    <include name="testBrokenLinks" />-->
-                    <include name="testContactUs" />
-<!--                    <include name="testSearch" />-->
-<!--                    <include name="testHelpButtonFunctionality" />-->
+                    <include name="testQuoteFormValidation" />
+                    <include name="testRetrieveSavedQuotesValidation" />
                 </methods>
             </class>
+        </classes>
+    </test>
+
+    <test name="State Farm Agent">
+        <classes>
+            <class name="Statefarm.TestStateFarmAgent" />
+        </classes>
+    </test>
+
+    <test name="Smoke Tests">
+        <classes>
+            <class name="Statefarm.TestMultilingualism" />
+            <class name="Statefarm.TestBrokenLinks" />
+            <class name="Statefarm.TestContactUs" />
+            <class name="Statefarm.TestSearchFunctionality" />
+            <class name="Statefarm.TestHelpSection" />
         </classes>
     </test>
 

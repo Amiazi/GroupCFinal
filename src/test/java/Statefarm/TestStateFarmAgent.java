@@ -19,11 +19,8 @@ public class TestStateFarmAgent extends CommonAPI {
         StateFarmHomepage homepage = new StateFarmHomepage(getDriver());
         homepage.clickFindAgentNavItem();
         homepage.enterZipCodeOnFindAgentSection(zip);
-        homepage.clickFindAnAgentButton();
 
-        waitFor(5);
-
-        AgentPage agentPage = new AgentPage(getDriver());
+        AgentPage agentPage = homepage.clickFindAnAgentButton();
         agentPage.checkIfUserIsCurrentlyOnThisPage();
         agentPage.checkIfUserWasSentWithSearchedZipCode(zip);
         agentPage.checkIfValidAgentsCountDisplayed(expectedAgents);
