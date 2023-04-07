@@ -17,6 +17,14 @@
 
     <test name="HomePage">
         <classes>
+            <class name="Statefarm.TestSFHelpButton"></class>
+            <class name="Statefarm.TestFindInsurance"></class>
+            <class name="Statefarm.TestStartAndEndChat"></class>
+            <class name="Statefarm.TestAgentBttn"></class>
+            <class name="Statefarm.TestTrackClaimButton"></class>
+            <class name="Statefarm.TestPayBill"></class>
+            <class name="Statefarm.TestSearchFunction"></class>
+            <class name="Statefarm.TestInvalidLogin"></class>
 
         </classes>
 

@@ -48,7 +48,8 @@ public class CommonAPI {
     public static String currentDir = System.getProperty("user.dir");
 
 
-    private WebDriver driver;
+    public static WebDriver driver;
+
     private boolean flag;
 
     //ExtentReport
@@ -120,7 +121,7 @@ public class CommonAPI {
             if (browser.equalsIgnoreCase("chrome")){
                 System.setProperty("webdriver.chrome.driver", Utility.currentDir+"\\driver\\windows\\chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--remote-allow-origins=*","--disable-extensions","--disable-popup-blocking");
                 driver = new ChromeDriver(options);
             }else if (browser.equalsIgnoreCase("firefox")){
                 System.setProperty("webdriver.gecko.driver", Utility.currentDir+"\\driver\\windows\\geckodriver.exe");
@@ -167,8 +168,8 @@ public class CommonAPI {
     @Parameters({"useCloudEnv","envName","os", "osVersion", "browser", "browserVersion", "url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("browserstack") String envName,
-                      @Optional("windows") String os, @Optional("11") String osVersion, @Optional("chrome") String browserName,
-                      @Optional("111") String browserVersion, @Optional("https://www.google.com") String url) throws MalformedURLException {
+                      @Optional("windows") String os, @Optional("10") String osVersion, @Optional("chrome") String browserName,
+                      @Optional("111") String browserVersion, @Optional("https://www.homedepot.com/") String url) throws MalformedURLException {
 
         if (useCloudEnv == true) {
             if (envName.equalsIgnoreCase("browserstack")) {
@@ -225,6 +226,7 @@ public class CommonAPI {
             return driver.findElement(By.xpath(locator)).getText();
         }
     }
+
     public void click(WebElement element){
         element.click();
     }
@@ -233,6 +235,9 @@ public class CommonAPI {
         element.sendKeys(text);
     }
 
+    public void typeAndSelectFirstValue(WebElement element, String text){
+        element.sendKeys(text, Keys.TAB);
+    }
     public void typeAndEnter(WebElement element, String text){
         element.sendKeys(text, Keys.ENTER);
     }
@@ -337,7 +342,7 @@ public class CommonAPI {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
     public void waitUntilVisible(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
     public void waitUntilSelectable(WebElement element){
@@ -366,6 +371,11 @@ public class CommonAPI {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void clickWithJs(WebElement element){
+        JavascriptExecutor js =  (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+
     }
 
     public void takeScreenshot(String screenshotName){

@@ -18,6 +18,18 @@
     <test name="HomePage">
         <classes>
 
+           <class name="HomeDepot.TestChangeLocation"></class>
+          <!-- <class name="HomeDepot.TestSearchProduct"></class>
+           <class name="HomeDepot.TestCreateAList"></class>
+            <!-<class name="HomeDepot.TestFeedbackBttn"></class>&ndash;&gt;-->
+           <!-- <class name="HomeDepot.TestUsedToolsLocator"></class>
+            <class name="HomeDepot.TestFilter"></class>
+            <class name="HomeDepot.TestAddtoCart"></class>
+            <class name="HomeDepot.TestLiveChat"></class>
+            <class name="HomeDepot.TestLogIn"></class>-->
+
+            <!--<class name="HomeDepot.TestCreateAList"></class>-->
+
         </classes>
 
     </test>

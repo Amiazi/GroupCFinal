@@ -17,6 +17,18 @@
 
     <test name="HomePage">
         <classes>
+           <!--<class name="AmericanAirlines.TestFeedBack"></class>
+            <class name="AmericanAirlines.TestLanguageBttn"></class>
+            <class name="AmericanAirlines.TestFilterForJobPostings"></class>
+            <class name="AmericanAirlines.TestFlightStatus"></class>-->
+            <class name="AmericanAirlines.TestBagTracking"></class><!--
+            <class name="AmericanAirlines.TestCarLink"></class>
+            <class name="AmericanAirlines.TestCheckHotel"></class>
+            <class name="AmericanAirlines.TestFindTrips"></class>
+            <class name="AmericanAirlines.TestInvalidLogin"></class>
+            <class name="AmericanAirlines.TestSearchingFlight"></class>
+            <class name="AmericanAirlines.TestValidLogin"></class>-->
+
 
         </classes>
 
