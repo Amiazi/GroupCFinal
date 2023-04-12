@@ -17,6 +17,9 @@
 
     <test name="HomePage">
         <classes>
+<!--            <class name="HomeDepot.TestUsedToolsLocator"></class>-->
+            <class name="HomeDepot.TestUpdateZip"></class>
+             <class name="HomeDepot.TestCustomerService"></class>
 
         </classes>
 
